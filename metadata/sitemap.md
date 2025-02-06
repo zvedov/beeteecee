@@ -1,0 +1,38 @@
+  - .gitignore
+  - README.md
+- components
+    - components/Navigation.tsx
+    - components/Slideshow.tsx
+  - get-app-content.js
+- metadata
+    - metadata/sitemap.md
+  - next-env.d.ts
+  - next.config.ts
+  - package-lock.json
+  - package.json
+- pages
+    - pages/_app.tsx
+    - pages/_document.tsx
+  - api
+      - pages/api/hello.ts
+  - class
+      - pages/class/[id].tsx
+    - pages/index.tsx
+  - module
+      - pages/module/[id].tsx
+  - terms
+      - pages/terms/[id].tsx
+  - postcss.config.mjs
+- public
+  - courses
+      - public/courses/module1.json
+    - public/favicon.ico
+    - public/file.svg
+    - public/globe.svg
+    - public/next.svg
+    - public/vercel.svg
+    - public/window.svg
+- styles
+    - styles/globals.css
+  - tailwind.config.ts
+  - tsconfig.json

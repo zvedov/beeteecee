@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSwipeable } from "react-swipeable";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSlides }) {
-  const [currentSlide, setCurrentSlide] = useState(currentSlideIndex);
   const router = useRouter();
+  const storageKey = `progress-${moduleId}`;
+  
+  // Load progress from localStorage
+  const [currentSlide, setCurrentSlide] = useState(() => {
+    if (typeof window !== "undefined") {
+      return parseInt(localStorage.getItem(storageKey)) || currentSlideIndex;
+    }
+    return currentSlideIndex;
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(storageKey, currentSlide.toString());
+    }
+  }, [currentSlide]);
 
   const nextSlide = () => {
     if (currentSlide < slides.length - 1) {
@@ -20,7 +34,6 @@ export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSl
     }
   };
 
-  // Swipe Gesture Handlers
   const handlers = useSwipeable({
     onSwipedLeft: nextSlide,
     onSwipedRight: prevSlide,
@@ -43,18 +56,16 @@ export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSl
       {/* Slide Transition */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentSlide} // Ensures animations work per slide change
+          key={currentSlide}
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
           className="w-full flex flex-col items-center"
         >
-          {/* Slide Title & Description */}
           <h2 className="text-xl sm:text-3xl font-bold text-center">{slides[currentSlide].title}</h2>
           <p className="text-gray-400 text-sm sm:text-lg text-center mt-2">{slides[currentSlide].description}</p>
 
-          {/* Slide Image */}
           {slides[currentSlide].image && (
             <div className="w-full flex justify-center my-4">
               <Image
@@ -67,7 +78,6 @@ export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSl
             </div>
           )}
 
-          {/* Slide Content List */}
           <ul className="list-disc pl-5 text-sm sm:text-lg mt-2">
             {slides[currentSlide].content.map((text, index) => (
               <li key={index} className="my-1">{text}</li>
