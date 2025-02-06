@@ -47,6 +47,18 @@
             ]
         }
     ],
+    "quiz": [
+        {
+            "question": "What is the primary function of money?",
+            "options": ["Store of Value", "Entertainment", "Decoration"],
+            "answer": "Store of Value"
+        },
+        {
+            "question": "Which of the following was used as commodity money?",
+            "options": ["Gold", "Plastic", "Paper"],
+            "answer": "Gold"
+        }
+    ],
     "terms": {
         "commodity money": "Money whose value comes from the commodity it is made of, such as gold, silver, or salt.",
         "mintage": "The process of producing coins and assigning them a nominal value.",

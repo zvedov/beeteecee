@@ -5,6 +5,7 @@
     - components/Slideshow.tsx
   - get-app-content.js
 - metadata
+    - metadata/filteredContent.json
     - metadata/sitemap.md
   - next-env.d.ts
   - next.config.ts
