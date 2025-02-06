@@ -1,0 +1,57 @@
+{
+    "title": "History of Money",
+    "slides": [
+        {
+            "title": "What is Money?",
+            "description": "An overview of the fundamental concept of money.",
+            "image": "https://example.com/what-is-money.jpg",
+            "content": [
+                "Money is a medium of exchange, a unit of account, and a store of value.",
+                "Throughout history, money has taken different forms, including commodities, coins, and paper."
+            ]
+        },
+        {
+            "title": "Commodity Money",
+            "description": "The first form of money was based on valuable goods.",
+            "image": "https://example.com/commodity-money.jpg",
+            "content": [
+                "People used valuable commodities like gold, silver, and salt as money.",
+                "The problem was that these items were not always easy to transport or divide."
+            ]
+        },
+        {
+            "title": "Rise of Coins",
+            "description": "The first standardized coins were created for easier trade.",
+            "image": "https://example.com/coins.jpg",
+            "content": [
+                "Around 600 BC, the Lydians created the first metal coins.",
+                "Coins made transactions easier because they had a fixed value."
+            ]
+        },
+        {
+            "title": "The Birth of Paper Money",
+            "description": "How paper money replaced metal coins as the dominant form of currency.",
+            "image": "https://example.com/paper-money.jpg",
+            "content": [
+                "In the 11th century, China introduced the first government-backed paper money.",
+                "Unlike coins, banknotes were easier to transport and store."
+            ]
+        },
+        {
+            "title": "Digital Money",
+            "description": "The rise of digital transactions and cryptocurrencies.",
+            "image": "https://example.com/digital-money.jpg",
+            "content": [
+                "Credit cards and online banking revolutionized payments in the 20th century.",
+                "Bitcoin and other cryptocurrencies introduced a decentralized form of digital money."
+            ]
+        }
+    ],
+    "terms": {
+        "commodity money": "Money whose value comes from the commodity it is made of, such as gold, silver, or salt.",
+        "mintage": "The process of producing coins and assigning them a nominal value.",
+        "banknote": "A paper note issued by a bank that represents a certain amount of money.",
+        "inflation": "The rate at which the general level of prices for goods and services rises, eroding purchasing power.",
+        "digital money": "Currency that exists only in digital form, such as cryptocurrencies or bank account balances."
+    }
+}
