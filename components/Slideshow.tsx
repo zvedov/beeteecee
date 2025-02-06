@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSwipeable } from "react-swipeable";
@@ -6,25 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSlides }) {
   const router = useRouter();
-  const storageKey = `progress-${moduleId}`;
   
-  // Load progress from localStorage
-  const [currentSlide, setCurrentSlide] = useState(() => {
-    if (typeof window !== "undefined") {
-      return parseInt(localStorage.getItem(storageKey)) || currentSlideIndex;
-    }
-    return currentSlideIndex;
-  });
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(storageKey, currentSlide.toString());
-    }
-  }, [currentSlide]);
+  // Initialize slide state (No localStorage)
+  const [currentSlide, setCurrentSlide] = useState(currentSlideIndex);
 
   const nextSlide = () => {
     if (currentSlide < slides.length - 1) {
       setCurrentSlide(currentSlide + 1);
+    } else {
+      router.push(`/class/${moduleId}/quiz`);
     }
   };
 
@@ -101,11 +91,10 @@ export default function Slideshow({ slides, moduleId, currentSlideIndex, totalSl
         <button
           onClick={nextSlide}
           className={`px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 border border-green-400 rounded-lg transition ${
-            currentSlide === slides.length - 1 ? "cursor-not-allowed opacity-50" : "hover:bg-gray-800 hover:text-yellow-400"
+            currentSlide === slides.length - 1 ? "hover:bg-yellow-400 text-black" : "hover:bg-gray-800 hover:text-yellow-400"
           }`}
-          disabled={currentSlide === slides.length - 1}
         >
-          Next ▶
+          {currentSlide < slides.length - 1 ? "Next ▶" : "Go to Quiz"}
         </button>
       </div>
 

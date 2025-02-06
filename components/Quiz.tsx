@@ -1,22 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Quiz({ moduleId, questions }) {
-  const storageKey = `quiz-progress-${moduleId}`;
   const [answers, setAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
 
-  useEffect(() => {
-    const savedProgress = localStorage.getItem(storageKey);
-    if (savedProgress) {
-      setAnswers(JSON.parse(savedProgress));
-    }
-  }, []);
-
   const handleAnswer = (questionIndex, selectedOption) => {
-    const newAnswers = { ...answers, [questionIndex]: selectedOption };
-    setAnswers(newAnswers);
-    localStorage.setItem(storageKey, JSON.stringify(newAnswers));
+    setAnswers({ ...answers, [questionIndex]: selectedOption });
   };
 
   const handleSubmit = () => {

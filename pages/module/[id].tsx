@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Quiz from "@/components/Quiz";
 
 export default function ModulePage() {
   const router = useRouter();
@@ -29,13 +28,6 @@ export default function ModulePage() {
           {slide.title}
         </Link>
       ))}
-
-      {/* Add Quiz Below Lessons */}
-      {moduleData.quiz && (
-        <div className="mt-8">
-          <Quiz moduleId={id} questions={moduleData.quiz} />
-        </div>
-      )}
     </div>
   );
 }
